@@ -7,7 +7,7 @@
   "start": "node server.js",
   "test:jest": "jest --coverage",
   "test:cucumber": "set TF_CPP_MIN_LOG_LEVEL=3 && cucumber-js --format json:./cucumber-report.json --require tests/cucumber/step_definitions/**/*.js",
-  "test:playwright": "set TF_CPP_MIN_LOG_LEVEL=3 && npx playwright test",
+  "test:playwright": "set TF_CPP_MIN_LOG_LEVEL=3 && npx playwright test tests/e2e",
   "test:lighthouse": "lighthouse http://localhost:3000 --output=json --output-path=lighthouse-report.json"
 },
     "dependencies": {
@@ -19,7 +19,8 @@
       "jest-json-reporter": "^1.2.2",
       "lighthouse": "^12.3.0",
       "playwright": "^1.50.1",
-      "selenium-webdriver": "^4.29.0"
+      "selenium-webdriver": "^4.29.0",
+      "@playwright/test": "^1.50.1"
     }
   }
   

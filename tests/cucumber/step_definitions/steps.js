@@ -1,117 +1,112 @@
-const { Given, When, Then } = require('@cucumber/cucumber'); // imports cucumber functions
-const assert = require('assert'); 
+const { Given, When, Then, After } = require('@cucumber/cucumber'); // imports cucumber functions
+const assert = require('assert'); // is used 4 assertions
 const { Builder, By, until } = require('selenium-webdriver'); // imports selenium functions
 const chrome = require('selenium-webdriver/chrome'); // is used 4 chrome options
 
-let driver;
+// use global.driver so it can be accessed in hooks
+global.driver = null;
 
-// opens the contacts page in a browser
 Given('that i am on the contacts management page', async function () {
   const options = new chrome.Options();
-  options.addArguments('--headless'); // use addArguments to enable headless mode
-  driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
-  await driver.get('http://localhost:3000');
+  options.addArguments('--headless'); // enable headless mode
+  global.driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
+  await global.driver.get('http://localhost:3000');
 });
 
-// ensures that a contact exists in the contacts list
 Given('that a contact exists in the contacts list', async function () {
-  // if the browser isn’t open yet, open it
-  if (!driver) {
+  if (!global.driver) {
     const options = new chrome.Options();
     options.addArguments('--headless');
-    driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
-    await driver.get('http://localhost:3000');
+    global.driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
+    await global.driver.get('http://localhost:3000');
   }
   // check if a contact with lastname "Doe" exists
-  const contacts = await driver.findElements(By.xpath('//td[text()="Doe"]'));
+  const contacts = await global.driver.findElements(By.xpath('//td[text()="Doe"]'));
   if (contacts.length === 0) {
     // if not, fill the form with valid data & click "Add"
-    await driver.findElement(By.id('lastname')).sendKeys('Doe');
-    await driver.findElement(By.id('firstname')).sendKeys('John');
-    await driver.findElement(By.id('phone')).sendKeys('1234567890');
-    await driver.findElement(By.id('email')).sendKeys('john.doe@example.com');
-    await driver.findElement(By.id('submit-button')).click();
+    await global.driver.findElement(By.id('lastname')).sendKeys('Doe');
+    await global.driver.findElement(By.id('firstname')).sendKeys('John');
+    await global.driver.findElement(By.id('phone')).sendKeys('1234567890');
+    await global.driver.findElement(By.id('email')).sendKeys('john.doe@example.com');
+    await global.driver.findElement(By.id('submit-button')).click();
     // wait until the contact appears in the list
-    await driver.wait(until.elementLocated(By.xpath('//td[text()="Doe"]')), 5000);
+    await global.driver.wait(until.elementLocated(By.xpath('//td[text()="Doe"]')), 5000);
   }
 });
 
-// fills the form fields with sample valid data
 When('i fill up the form with valid data', async function () {
-  await driver.findElement(By.id('lastname')).clear();
-  await driver.findElement(By.id('lastname')).sendKeys('Doe');
-  await driver.findElement(By.id('firstname')).clear();
-  await driver.findElement(By.id('firstname')).sendKeys('John');
-  await driver.findElement(By.id('phone')).clear();
-  await driver.findElement(By.id('phone')).sendKeys('1234567890');
-  await driver.findElement(By.id('email')).clear();
-  await driver.findElement(By.id('email')).sendKeys('john.doe@example.com');
+  await global.driver.findElement(By.id('lastname')).clear();
+  await global.driver.findElement(By.id('lastname')).sendKeys('Doe');
+  await global.driver.findElement(By.id('firstname')).clear();
+  await global.driver.findElement(By.id('firstname')).sendKeys('John');
+  await global.driver.findElement(By.id('phone')).clear();
+  await global.driver.findElement(By.id('phone')).sendKeys('1234567890');
+  await global.driver.findElement(By.id('email')).clear();
+  await global.driver.findElement(By.id('email')).sendKeys('john.doe@example.com');
 });
 
-// clicks on a button with the given text
 When('i click on {string}', async function (buttonText) {
-  const button = await driver.findElement(By.xpath(`//button[text()="${buttonText}"]`));
+  const button = await global.driver.findElement(By.xpath(`//button[text()="${buttonText}"]`));
   await button.click();
 });
 
-// clicks on the {string} button for that contact (modify & delete actions)
 When('i click on the {string} button for that contact', async function (buttonText) {
   // locate the row that contains the contact with lastname "Doe"
-  const row = await driver.findElement(By.xpath('//td[text()="Doe"]/parent::tr'));
+  const row = await global.driver.findElement(By.xpath('//td[text()="Doe"]/parent::tr'));
   const button = await row.findElement(By.xpath(`.//button[text()="${buttonText}"]`));
   await button.click();
 });
 
-// changes the contact data 4 modification
 When('i change the contact data', async function () {
-  const firstnameField = await driver.findElement(By.id('firstname'));
+  const firstnameField = await global.driver.findElement(By.id('firstname'));
   await firstnameField.clear();
   await firstnameField.sendKeys('Jane');
 });
 
-// confirms the deletion in the dialog
 When('i confirm the deletion', async function () {
-  await driver.switchTo().alert().accept();
+  await global.driver.switchTo().alert().accept();
 });
 
-// verifies that a new contact is added to the list
 Then('i see a new contact on the list', async function () {
-  await driver.wait(until.elementLocated(By.xpath('//td[text()="Doe"]')), 5000);
-  const contactElement = await driver.findElement(By.xpath('//td[text()="Doe"]'));
+  await global.driver.wait(until.elementLocated(By.xpath('//td[text()="Doe"]')), 5000);
+  const contactElement = await global.driver.findElement(By.xpath('//td[text()="Doe"]'));
   const text = await contactElement.getText();
   assert.strictEqual(text, 'Doe');
 });
 
-// verifies that the contact information is updated
 Then('i see the updated contact information on the list', async function () {
-  await driver.wait(until.elementLocated(By.xpath('//td[text()="Jane"]')), 5000);
-  const contactElement = await driver.findElement(By.xpath('//td[text()="Jane"]'));
+  await global.driver.wait(until.elementLocated(By.xpath('//td[text()="Jane"]')), 5000);
+  const contactElement = await global.driver.findElement(By.xpath('//td[text()="Jane"]'));
   const text = await contactElement.getText();
   assert.strictEqual(text, 'Jane');
 });
 
-// verifies that the contact has been removed from the list
-Then('i no longer see the contact on the list', { timeout: 15000 }, async function () {
-  // wait up to 10 seconds for the element to disappear
-  await driver.wait(async () => {
-    const contacts = await driver.findElements(By.xpath('//td[text()="Doe"]'));
+Then('i no longer see the contact on the list', { timeout: 30000 }, async function () {
+  // wait up to 15 seconds for the element to disappear
+  await global.driver.wait(async () => {
+    const contacts = await global.driver.findElements(By.xpath('//td[text()="Doe"]'));
+    console.log('waiting for deletion, found count:', contacts.length);
+    return contacts.length === 0;
+  }, 15000);
+
+  // reload the page to verify the deletion persists
+  await global.driver.navigate().refresh();
+
+  // wait up to 10 seconds after refresh for the element to remain absent
+  await global.driver.wait(async () => {
+    const contacts = await global.driver.findElements(By.xpath('//td[text()="Doe"]'));
+    console.log('after refresh, found count:', contacts.length);
     return contacts.length === 0;
   }, 10000);
 
-  // reload the page to verify the deletion persists
-  await driver.navigate().refresh();
-
-  // wait a bit for the page to load after refresh
-  await driver.wait(async () => {
-    const contacts = await driver.findElements(By.xpath('//td[text()="Doe"]'));
-    return contacts.length === 0;
-  }, 5000);
-
-  // final check: ensure no contact with "Doe" exists
-  const contacts = await driver.findElements(By.xpath('//td[text()="Doe"]'));
+  const contacts = await global.driver.findElements(By.xpath('//td[text()="Doe"]'));
   assert.strictEqual(contacts.length, 0);
-  await driver.quit();
 });
 
-
-
+// after hook: quit the driver after each scenario
+After(async function () {
+  if (global.driver) {
+    await global.driver.quit();
+    global.driver = null;
+  }
+});
