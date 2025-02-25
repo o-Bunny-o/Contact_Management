@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa; 
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #00838f; 
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #4dd0e1; 
+  }
+  
+  /* form */
+  #contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  #contact-form div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #contact-form button {
+    grid-column: span 2;
+    padding: 10px;
+    background-color: #00acc1;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #contact-form button:hover {
+    background-color: #00838f;
+  }
+  
+  /* responsive */
+  @media (max-width: 600px) {
+    /* change grid layout 4 mobile view */
+    #contact-form {
+      grid-template-columns: 1fr;
+    }
+  }
+  
