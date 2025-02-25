@@ -1,11 +1,11 @@
-import { Given, When, Then } from '@cucumber/cucumber';
-import { strict as assert } from 'assert';
-import { Builder, By, until } from 'selenium-webdriver';
-import chrome from 'selenium-webdriver/chrome';
+const { Given, When, Then } = require('@cucumber/cucumber');
+const assert = require('assert');
+const { Builder, By, until } = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
 
 let driver;
 
-// opens contacts page in a browser
+// opens the contacts page in a browser
 Given('that i am on the contacts management page', async function () {
   driver = await new Builder().forBrowser('chrome').setChromeOptions(new chrome.Options().headless()).build();
   await driver.get('http://localhost:3000');
@@ -42,7 +42,7 @@ Then('i see a new contact on the list', async function () {
   await driver.wait(until.elementLocated(By.xpath('//td[text()="Doe"]')), 5000);
   const contactElement = await driver.findElement(By.xpath('//td[text()="Doe"]'));
   const text = await contactElement.getText();
-  assert.equal(text, 'Doe');
+  assert.strictEqual(text, 'Doe');
 });
 
 // verifies that the contact information is updated
@@ -50,12 +50,12 @@ Then('i see the updated contact information on the list', async function () {
   await driver.wait(until.elementLocated(By.xpath('//td[text()="Jane"]')), 5000);
   const contactElement = await driver.findElement(By.xpath('//td[text()="Jane"]'));
   const text = await contactElement.getText();
-  assert.equal(text, 'Jane');
+  assert.strictEqual(text, 'Jane');
 });
 
 // verifies that the contact has been removed from the list
 Then('i no longer see the contact on the list', async function () {
-  let contacts = await driver.findElements(By.xpath('//td[text()="Doe"]'));
-  assert.equal(contacts.length, 0);
+  const contacts = await driver.findElements(By.xpath('//td[text()="Doe"]'));
+  assert.strictEqual(contacts.length, 0);
   await driver.quit();
 });

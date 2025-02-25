@@ -1,4 +1,4 @@
-import { addContact, updateContact, deleteContact, validateContact } from '../../lib/contactsManager.js';
+const { addContact, updateContact, deleteContact, validateContact } = require('../../lib/contactsManager');
 
 describe('contactsManager functions', () => {
   test('addContact adds a new contact', () => {
@@ -45,21 +45,21 @@ describe('contactsManager functions', () => {
   });
 
   test('validateContact returns error for missing fields', () => {
-    // test validation with missing fields
+    // validation with missing fields
     const invalidContact = { lastname: "Doe", firstname: "", phone: "123", email: "" };
     const result = validateContact(invalidContact);
     expect(result.valid).toBe(false);
   });
 
   test('validateContact returns error for invalid email', () => {
-    // test validation with invalid email format
+    // validation with invalid email format
     const invalidContact = { lastname: "Doe", firstname: "John", phone: "123", email: "invalid" };
     const result = validateContact(invalidContact);
     expect(result.valid).toBe(false);
   });
 
   test('validateContact returns valid for correct contact', () => {
-    // test validation with correct contact data
+    // validation with correct contact data
     const validContact = { lastname: "Doe", firstname: "John", phone: "1234567890", email: "john.doe@example.com" };
     const result = validateContact(validContact);
     expect(result.valid).toBe(true);

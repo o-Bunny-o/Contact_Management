@@ -3,11 +3,10 @@
     "version": "1.0.0",
     "description": "contacts manager application with automated tests & ci/cd",
     "main": "server.js",
-    "type": "module",
     "scripts": {
       "start": "node server.js",
       "test:jest": "jest --coverage",
-      "test:cucumber": "cucumber-js --format json:./cucumber-report.json",
+      "test:cucumber": "cucumber-js --format json:./cucumber-report.json --require tests/cucumber/step_definitions/**/*.js",
       "test:playwright": "npx playwright test",
       "test:lighthouse": "lighthouse http://localhost:3000 --output=json --output-path=lighthouse-report.json"
     },

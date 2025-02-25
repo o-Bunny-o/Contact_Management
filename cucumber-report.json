@@ -1,0 +1,252 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "add-contact;add-new-contact",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "add new contact",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "that i am on the contacts management page",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:9"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 3000000,
+              "error_message": "TypeError: (intermediate value).headless is not a function\n    at World.<anonymous> (D:\\Pam\\School\\Block_4\\Test_and_Livraison_Continue\\Contact_Management\\tests\\cucumber\\step_definitions\\steps.js:10:91)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "i fill up the form with valid data",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "i click on \"Add\"",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:23"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "i see a new contact on the list",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:41"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "add-contact",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Add Contact",
+    "tags": [],
+    "uri": "tests\\cucumber\\features\\add_contact.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "delete-contact;delete-an-existing-contact",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "delete an existing contact",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "that a contact exists in the contacts list",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 5,
+            "name": "that i am on the contacts management page",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:9"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "i click on the \"Delete\" button for that contact",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "i confirm the deletion",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:36"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "i no longer see the contact on the list",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:57"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "delete-contact",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Delete Contact",
+    "tags": [],
+    "uri": "tests\\cucumber\\features\\delete_contact.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "modify-contact;modify-existing-contact",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "modify existing contact",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "that a contact exists in the contacts list",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 5,
+            "name": "that i am on the contacts management page",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:9"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "i click on the \"Modify\" button for that contact",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "i change the contact data",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:29"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "i click on \"Save\"",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:23"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "i see the updated contact information on the list",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:49"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "modify-contact",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Modify Contact",
+    "tags": [],
+    "uri": "tests\\cucumber\\features\\modify_contact.feature"
+  }
+]
