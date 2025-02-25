@@ -19,7 +19,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1468000000
+              "duration": 1438000000
             }
           },
           {
@@ -32,7 +32,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 548000000
+              "duration": 506000000
             }
           },
           {
@@ -45,7 +45,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 93000000
+              "duration": 84000000
             }
           },
           {
@@ -58,7 +58,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 46000000
+              "duration": 45000000
             }
           }
         ],
@@ -106,7 +106,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1465000000
+              "duration": 1337000000
             }
           },
           {
@@ -119,7 +119,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 136000000
+              "duration": 159000000
             }
           },
           {
@@ -132,7 +132,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 6000000
+              "duration": 8000000
             }
           },
           {
@@ -145,8 +145,8 @@
             },
             "result": {
               "status": "failed",
-              "duration": 10193000000,
-              "error_message": "TimeoutError: Wait timed out after 10191ms\n    at D:\\Pam\\School\\Block_4\\Test_and_Livraison_Continue\\Contact_Management\\node_modules\\selenium-webdriver\\lib\\webdriver.js:929:22\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+              "duration": 10208000000,
+              "error_message": "TimeoutError: Wait timed out after 10206ms\n    at D:\\Pam\\School\\Block_4\\Test_and_Livraison_Continue\\Contact_Management\\node_modules\\selenium-webdriver\\lib\\webdriver.js:929:22\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
             }
           }
         ],
@@ -181,7 +181,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 8000000
             }
           },
           {
@@ -194,7 +194,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1338000000
+              "duration": 1288000000
             }
           },
           {
@@ -207,7 +207,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 190000000
+              "duration": 142000000
             }
           },
           {
@@ -220,7 +220,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 210000000
+              "duration": 131000000
             }
           },
           {
@@ -233,7 +233,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 113000000
+              "duration": 92000000
             }
           },
           {
@@ -246,7 +246,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 51000000
+              "duration": 48000000
             }
           }
         ],
