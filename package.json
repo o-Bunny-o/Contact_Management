@@ -3,13 +3,13 @@
     "version": "1.0.0",
     "description": "contacts manager application with automated tests & ci/cd",
     "main": "server.js",
-    "scripts": {
-      "start": "node server.js",
-      "test:jest": "jest --coverage",
-      "test:cucumber": "cucumber-js --format json:./cucumber-report.json --require tests/cucumber/step_definitions/**/*.js",
-      "test:playwright": "npx playwright test",
-      "test:lighthouse": "lighthouse http://localhost:3000 --output=json --output-path=lighthouse-report.json"
-    },
+"scripts": {
+  "start": "node server.js",
+  "test:jest": "jest --coverage",
+  "test:cucumber": "set TF_CPP_MIN_LOG_LEVEL=3 && cucumber-js --format json:./cucumber-report.json --require tests/cucumber/step_definitions/**/*.js",
+  "test:playwright": "npx playwright test",
+  "test:lighthouse": "lighthouse http://localhost:3000 --output=json --output-path=lighthouse-report.json"
+},
     "dependencies": {
       "express": "^4.21.2"
     },

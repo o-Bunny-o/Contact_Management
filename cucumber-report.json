@@ -18,9 +18,8 @@
               "location": "tests\\cucumber\\step_definitions\\steps.js:9"
             },
             "result": {
-              "status": "failed",
-              "duration": 3000000,
-              "error_message": "TypeError: (intermediate value).headless is not a function\n    at World.<anonymous> (D:\\Pam\\School\\Block_4\\Test_and_Livraison_Continue\\Contact_Management\\tests\\cucumber\\step_definitions\\steps.js:10:91)"
+              "status": "passed",
+              "duration": 1468000000
             }
           },
           {
@@ -29,11 +28,11 @@
             "line": 5,
             "name": "i fill up the form with valid data",
             "match": {
-              "location": "tests\\cucumber\\step_definitions\\steps.js:15"
+              "location": "tests\\cucumber\\step_definitions\\steps.js:40"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 548000000
             }
           },
           {
@@ -42,11 +41,11 @@
             "line": 6,
             "name": "i click on \"Add\"",
             "match": {
-              "location": "tests\\cucumber\\step_definitions\\steps.js:23"
+              "location": "tests\\cucumber\\step_definitions\\steps.js:52"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 93000000
             }
           },
           {
@@ -55,11 +54,11 @@
             "line": 7,
             "name": "i see a new contact on the list",
             "match": {
-              "location": "tests\\cucumber\\step_definitions\\steps.js:41"
+              "location": "tests\\cucumber\\step_definitions\\steps.js:78"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 46000000
             }
           }
         ],
@@ -89,9 +88,12 @@
             "keyword": "Given ",
             "line": 4,
             "name": "that a contact exists in the contacts list",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:17"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 9000000
             }
           },
           {
@@ -103,8 +105,8 @@
               "location": "tests\\cucumber\\step_definitions\\steps.js:9"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1465000000
             }
           },
           {
@@ -112,9 +114,12 @@
             "keyword": "When ",
             "line": 6,
             "name": "i click on the \"Delete\" button for that contact",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:58"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 136000000
             }
           },
           {
@@ -123,11 +128,11 @@
             "line": 7,
             "name": "i confirm the deletion",
             "match": {
-              "location": "tests\\cucumber\\step_definitions\\steps.js:36"
+              "location": "tests\\cucumber\\step_definitions\\steps.js:73"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 6000000
             }
           },
           {
@@ -136,11 +141,12 @@
             "line": 8,
             "name": "i no longer see the contact on the list",
             "match": {
-              "location": "tests\\cucumber\\step_definitions\\steps.js:57"
+              "location": "tests\\cucumber\\step_definitions\\steps.js:94"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "failed",
+              "duration": 10193000000,
+              "error_message": "TimeoutError: Wait timed out after 10191ms\n    at D:\\Pam\\School\\Block_4\\Test_and_Livraison_Continue\\Contact_Management\\node_modules\\selenium-webdriver\\lib\\webdriver.js:929:22\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
             }
           }
         ],
@@ -170,9 +176,12 @@
             "keyword": "Given ",
             "line": 4,
             "name": "that a contact exists in the contacts list",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:17"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 9000000
             }
           },
           {
@@ -184,8 +193,8 @@
               "location": "tests\\cucumber\\step_definitions\\steps.js:9"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1338000000
             }
           },
           {
@@ -193,9 +202,12 @@
             "keyword": "When ",
             "line": 6,
             "name": "i click on the \"Modify\" button for that contact",
+            "match": {
+              "location": "tests\\cucumber\\step_definitions\\steps.js:58"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 190000000
             }
           },
           {
@@ -204,11 +216,11 @@
             "line": 7,
             "name": "i change the contact data",
             "match": {
-              "location": "tests\\cucumber\\step_definitions\\steps.js:29"
+              "location": "tests\\cucumber\\step_definitions\\steps.js:66"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 210000000
             }
           },
           {
@@ -217,11 +229,11 @@
             "line": 8,
             "name": "i click on \"Save\"",
             "match": {
-              "location": "tests\\cucumber\\step_definitions\\steps.js:23"
+              "location": "tests\\cucumber\\step_definitions\\steps.js:52"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 113000000
             }
           },
           {
@@ -230,11 +242,11 @@
             "line": 9,
             "name": "i see the updated contact information on the list",
             "match": {
-              "location": "tests\\cucumber\\step_definitions\\steps.js:49"
+              "location": "tests\\cucumber\\step_definitions\\steps.js:86"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 51000000
             }
           }
         ],
