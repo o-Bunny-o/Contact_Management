@@ -19,7 +19,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1429000000
+              "duration": 1778000000
             }
           },
           {
@@ -32,7 +32,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 491000000
+              "duration": 777000000
             }
           },
           {
@@ -45,7 +45,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 89000000
+              "duration": 147000000
             }
           },
           {
@@ -58,23 +58,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 46000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 46000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 0
+              "duration": 92000000
             }
           }
         ],
@@ -109,7 +93,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1230000000
+              "duration": 15000000
             }
           },
           {
@@ -122,7 +106,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1382000000
+              "duration": 1410000000
             }
           },
           {
@@ -135,7 +119,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 151000000
+              "duration": 365000000
             }
           },
           {
@@ -148,7 +132,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 6000000
+              "duration": 11000000
             }
           },
           {
@@ -161,23 +145,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 83000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 40000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 1000000
+              "duration": 103000000
             }
           }
         ],
@@ -212,7 +180,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2035000000
+              "duration": 874000000
             }
           },
           {
@@ -225,7 +193,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1319000000
+              "duration": 1399000000
             }
           },
           {
@@ -238,7 +206,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 150000000
+              "duration": 223000000
             }
           },
           {
@@ -251,7 +219,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 144000000
+              "duration": 145000000
             }
           },
           {
@@ -264,7 +232,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 114000000
+              "duration": 128000000
             }
           },
           {
@@ -277,23 +245,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 38000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 39000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 1000000
+              "duration": 54000000
             }
           }
         ],

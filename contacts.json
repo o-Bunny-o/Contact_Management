@@ -4,76 +4,13 @@
     "firstname": "Jane",
     "phone": "1234567890",
     "email": "john.doe@example.com",
-    "id": "1740521613228"
+    "id": "1740524655220"
   },
   {
-    "lastname": "DoeDelete",
+    "lastname": "DoeDelete-1740524655891",
     "firstname": "John",
     "phone": "1234567890",
     "email": "john.doe@example.com",
-    "id": "1740521614140"
-  },
-  {
-    "lastname": "Doe",
-    "firstname": "John",
-    "phone": "1234567890",
-    "email": "john.doe@example.com",
-    "id": "1740521815546"
-  },
-  {
-    "lastname": "DoeDelete",
-    "firstname": "John",
-    "phone": "1234567890",
-    "email": "john.doe@example.com",
-    "id": "1740521816460"
-  },
-  {
-    "lastname": "Doe",
-    "firstname": "John",
-    "phone": "1234567890",
-    "email": "john.doe@example.com",
-    "id": "1740521896489"
-  },
-  {
-    "lastname": "DoeDelete",
-    "firstname": "John",
-    "phone": "1234567890",
-    "email": "john.doe@example.com",
-    "id": "1740521897355"
-  },
-  {
-    "lastname": "Doe",
-    "firstname": "John",
-    "phone": "1234567890",
-    "email": "john.doe@example.com",
-    "id": "1740522322579"
-  },
-  {
-    "lastname": "ModifyMe",
-    "firstname": "Initial",
-    "phone": "5555555555",
-    "email": "init@example.com",
-    "id": "1740522329094"
-  },
-  {
-    "lastname": "DeleteMe",
-    "firstname": "Gone",
-    "phone": "8888888888",
-    "email": "gone@example.com",
-    "id": "1740522335643"
-  },
-  {
-    "lastname": "Doe",
-    "firstname": "John",
-    "phone": "1234567890",
-    "email": "john.doe@example.com",
-    "id": "1740522444828"
-  },
-  {
-    "lastname": "DoeDelete",
-    "firstname": "John",
-    "phone": "1234567890",
-    "email": "john.doe@example.com",
-    "id": "1740522445700"
+    "id": "1740524656021"
   }
 ]

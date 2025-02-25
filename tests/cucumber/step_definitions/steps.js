@@ -1,7 +1,7 @@
-const { Given, When, Then, After } = require('@cucumber/cucumber'); // imports cucumber functions
-const assert = require('assert'); // is used 4 assertions
+const { Given, When, Then } = require('@cucumber/cucumber'); // imports cucumber functions
+const assert = require('assert'); // used 4 assertions
 const { Builder, By, until } = require('selenium-webdriver'); // imports selenium functions
-const chrome = require('selenium-webdriver/chrome'); // is used 4 chrome options
+const chrome = require('selenium-webdriver/chrome'); // used 4 chrome options
 
 // use global.driver so it can be accessed in hooks
 global.driver = null;
@@ -101,12 +101,4 @@ Then('i no longer see the contact on the list', { timeout: 30000 }, async functi
 
   const contacts = await global.driver.findElements(By.xpath('//td[text()="Doe"]'));
   assert.strictEqual(contacts.length, 0);
-});
-
-// after hook: quit the driver after each scenario
-After(async function () {
-  if (global.driver) {
-    await global.driver.quit();
-    global.driver = null;
-  }
 });

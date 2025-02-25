@@ -50,44 +50,37 @@ test.describe('Contacts Manager E2E tests', () => {
   });
 
   test('delete a contact', async ({ page }) => {
-    // navigate to the contacts management page
     await page.goto('http://localhost:3000');
-    
-    // add a unique contact to delete
-    const uniqueLastname = 'DoeDelete';
+  
+    // use a truly unique lastname
+    const uniqueLastname = `DoeDelete-${Date.now()}`;
+  
+    // add the contact
     await page.fill('#lastname', uniqueLastname);
     await page.fill('#firstname', 'John');
     await page.fill('#phone', '1234567890');
     await page.fill('#email', 'john.doe@example.com');
     await page.click('#submit-button');
-    
-    // wait for the unique contact to appear in a table row
-    await page.waitForSelector(`tr:has(td:has-text("${uniqueLastname}"))`, { timeout: 10000 });
-    
-    // locate the table row that contains the unique contact
-    const row = await page.locator(`tr:has(td:has-text("${uniqueLastname}"))`).first();
-    // click the "Delete" button in that row
-    await row.locator('button:has-text("Delete")').click();
-    
-    // if a confirmation dialog appears, accept it
+  
+    // wait for the contact to appear
+    await page.waitForSelector(`tr:has-text("${uniqueLastname}")`, { timeout: 10000 });
+  
+    // click delete
+    await page.locator(`tr:has-text("${uniqueLastname}") button:has-text("Delete")`).click();
+  
+    // handle confirmation dialog
     page.once('dialog', async dialog => {
       await dialog.accept();
     });
-    
-    // wait a few seconds to allow deletion to process
-    await page.waitForTimeout(3000);
-    
-    // reload the page to verify the deletion persists
-    await page.reload();
-    
-    // wait until the first matching row is detached
-    await page.locator(`tr:has(td:has-text("${uniqueLastname}"))`).first().waitFor({ state: 'detached', timeout: 10000 });
-    
-    // verify that no rows matching the unique contact are present
-    const rowCount = await page.locator(`tr:has(td:has-text("${uniqueLastname}"))`).count();
-    expect(rowCount).toBe(0);
-    
-    await page.screenshot({ path: 'screenshots/delete-contact.png' });
-  });
   
+    // wait a bit, then reload
+    await page.waitForTimeout(2000);
+    await page.reload();
+  
+    // final check: confirm the row is gone
+    const tableText = await page.locator('table').textContent();
+    console.log('table text after deletion & reload:', tableText);
+    expect(tableText).not.toContain(uniqueLastname);
+  });
+      
 });

@@ -109,20 +109,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   async function deleteContact(id) {
-    // deletes a contact after confirmation
-    if (confirm('are you sure you want to delete this contact?')) {
+    console.log('frontend: deleteContact called with id=', id);
+      if (confirm('are you sure...')) {
       try {
-        await fetch(`/api/contacts/${id}`, {
-          method: 'DELETE'
-        });
-        // reload contacts list after deletion
+        await fetch(`/api/contacts/${id}`, { method: 'DELETE' });
         loadContacts();
-      } catch (error) {
-        console.error('error deleting contact:', error);
+      } catch (err) {
+        console.error('error deleting contact:', err);
       }
     }
   }
-  
+    
   function resetForm() {
     // resets the contact form to its default state
     document.getElementById('contact-form').reset();
