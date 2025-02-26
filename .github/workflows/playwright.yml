@@ -24,10 +24,12 @@ jobs:
         run: npx playwright install
 
       - name: Start server and wait for it to be ready
+        shell: pwsh
         run: |
-          npm start &
+          Start-Process npm -ArgumentList "start" -NoNewWindow
           npx wait-on http://localhost:3000
-          timeout /t 2
+          Start-Sleep -Seconds 2
+      
       
       
       - name: Run Playwright tests
