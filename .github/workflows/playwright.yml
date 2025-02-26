@@ -1,4 +1,4 @@
-name: playwright tests
+name: Playwright Tests
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  playwright:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,8 +29,6 @@ jobs:
           Start-Process npm -ArgumentList "start" -NoNewWindow
           npx wait-on http://localhost:3000
           Start-Sleep -Seconds 2
-      
-      
-      
+
       - name: Run Playwright tests
         run: npm run test:playwright
