@@ -1,4 +1,4 @@
-const { Given, When, Then } = require('@cucumber/cucumber'); // imports cucumber functions
+const { Given, When, Then, After } = require('@cucumber/cucumber'); // imports cucumber functions
 const assert = require('assert'); // used 4 assertions
 const { Builder, By, until } = require('selenium-webdriver'); // imports selenium functions
 const chrome = require('selenium-webdriver/chrome'); // used 4 chrome options
@@ -6,14 +6,14 @@ const chrome = require('selenium-webdriver/chrome'); // used 4 chrome options
 // use global.driver so it can be accessed in hooks
 global.driver = null;
 
-Given('that i am on the contacts management page', async function () {
+Given('that i am on the contacts management page', { timeout: 20000 }, async function () {
   const options = new chrome.Options();
   options.addArguments('--headless'); // enable headless mode
   global.driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
   await global.driver.get('http://localhost:3000');
 });
 
-Given('that a contact exists in the contacts list', async function () {
+Given('that a contact exists in the contacts list', { timeout: 20000 }, async function () {
   if (!global.driver) {
     const options = new chrome.Options();
     options.addArguments('--headless');
@@ -30,11 +30,11 @@ Given('that a contact exists in the contacts list', async function () {
     await global.driver.findElement(By.id('email')).sendKeys('john.doe@example.com');
     await global.driver.findElement(By.id('submit-button')).click();
     // wait until the contact appears in the list
-    await global.driver.wait(until.elementLocated(By.xpath('//td[text()="Doe"]')), 5000);
+    await global.driver.wait(until.elementLocated(By.xpath('//td[text()="Doe"]')), 10000);
   }
 });
 
-When('i fill up the form with valid data', async function () {
+When('i fill up the form with valid data', { timeout: 15000 }, async function () {
   await global.driver.findElement(By.id('lastname')).clear();
   await global.driver.findElement(By.id('lastname')).sendKeys('Doe');
   await global.driver.findElement(By.id('firstname')).clear();
@@ -45,37 +45,37 @@ When('i fill up the form with valid data', async function () {
   await global.driver.findElement(By.id('email')).sendKeys('john.doe@example.com');
 });
 
-When('i click on {string}', async function (buttonText) {
+When('i click on {string}', { timeout: 10000 }, async function (buttonText) {
   const button = await global.driver.findElement(By.xpath(`//button[text()="${buttonText}"]`));
   await button.click();
 });
 
-When('i click on the {string} button for that contact', async function (buttonText) {
+When('i click on the {string} button for that contact', { timeout: 15000 }, async function (buttonText) {
   // locate the row that contains the contact with lastname "Doe"
   const row = await global.driver.findElement(By.xpath('//td[text()="Doe"]/parent::tr'));
   const button = await row.findElement(By.xpath(`.//button[text()="${buttonText}"]`));
   await button.click();
 });
 
-When('i change the contact data', async function () {
+When('i change the contact data', { timeout: 10000 }, async function () {
   const firstnameField = await global.driver.findElement(By.id('firstname'));
   await firstnameField.clear();
   await firstnameField.sendKeys('Jane');
 });
 
-When('i confirm the deletion', async function () {
+When('i confirm the deletion', { timeout: 10000 }, async function () {
   await global.driver.switchTo().alert().accept();
 });
 
-Then('i see a new contact on the list', async function () {
-  await global.driver.wait(until.elementLocated(By.xpath('//td[text()="Doe"]')), 5000);
+Then('i see a new contact on the list', { timeout: 15000 }, async function () {
+  await global.driver.wait(until.elementLocated(By.xpath('//td[text()="Doe"]')), 10000);
   const contactElement = await global.driver.findElement(By.xpath('//td[text()="Doe"]'));
   const text = await contactElement.getText();
   assert.strictEqual(text, 'Doe');
 });
 
-Then('i see the updated contact information on the list', async function () {
-  await global.driver.wait(until.elementLocated(By.xpath('//td[text()="Jane"]')), 5000);
+Then('i see the updated contact information on the list', { timeout: 15000 }, async function () {
+  await global.driver.wait(until.elementLocated(By.xpath('//td[text()="Jane"]')), 10000);
   const contactElement = await global.driver.findElement(By.xpath('//td[text()="Jane"]'));
   const text = await contactElement.getText();
   assert.strictEqual(text, 'Jane');
@@ -101,4 +101,12 @@ Then('i no longer see the contact on the list', { timeout: 30000 }, async functi
 
   const contacts = await global.driver.findElements(By.xpath('//td[text()="Doe"]'));
   assert.strictEqual(contacts.length, 0);
+});
+
+// after hook: quit the driver after each scenario
+After(async function () {
+  if (global.driver) {
+    await global.driver.quit();
+    global.driver = null;
+  }
 });
