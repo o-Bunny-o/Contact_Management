@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1740536950174" clover="3.2.0">
-  <project timestamp="1740536950175" name="All files">
+<coverage generated="1740542366923" clover="3.2.0">
+  <project timestamp="1740542366923" name="All files">
     <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="9" methods="6" coveredmethods="6" elements="27" coveredelements="26" complexity="0" loc="11" ncloc="11" packages="1" files="1" classes="1"/>
     <file name="contactsManager.js" path="D:\Pam\School\Block_4\Test_and_Livraison_Continue\Contact_Management\lib\contactsManager.js">
       <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="9" methods="6" coveredmethods="6"/>
