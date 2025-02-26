@@ -25,7 +25,10 @@ jobs:
 
       - name: Start server and wait for it to be ready
         run: |
-          npx concurrently "npm start" "npx wait-on http://localhost:3000"
+          npm start &
+          npx wait-on http://localhost:3000
+          timeout /t 2
+      
       
       - name: Run Playwright tests
         run: npm run test:playwright
