@@ -90,20 +90,23 @@ app.put('/api/contacts/:id', async (req, res) => {
 });
 
 /**
+ * DELETE /api/contacts/:id
  * deletes an existing contact
  */
 app.delete('/api/contacts/:id', async (req, res) => {
-  console.log('server: delete route called with id=', req.params.id);
-  const data = await fs.readFile(contactsFilePath, 'utf-8');
-  const contacts = JSON.parse(data);
-  console.log('contacts before delete:', contacts);
-  
-  const updatedContacts = deleteContact(contacts, req.params.id);
-  console.log('contacts after delete:', updatedContacts);
-
+  try {
+    console.log('server: delete route called with id=', req.params.id);
+    const data = await fs.readFile(contactsFilePath, 'utf-8');
+    const contacts = JSON.parse(data);
+    console.log('contacts before delete:', contacts);
+    
+    const updatedContacts = deleteContact(contacts, req.params.id);
+    console.log('contacts after delete:', updatedContacts);
+    
     await fs.writeFile(contactsFilePath, JSON.stringify(updatedContacts, null, 2));
     res.status(200).json(updatedContacts);
   } catch (err) {
+    console.error(`error in DELETE /api/contacts/${req.params.id}:`, err);
     res.status(500).json({ error: err.message });
   }
 });
