@@ -11,13 +11,21 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - name: setup node
+
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - name: install dependencies
+
+      - name: Install dependencies
         run: npm install
-      - name: install playwright browsers
+
+      - name: Install Playwright Browsers
         run: npx playwright install
-      - name: run playwright tests
+
+      - name: Start server and wait for it to be ready
+        run: |
+          npx concurrently "npm start" "npx wait-on http://localhost:3000"
+      
+      - name: Run Playwright tests
         run: npm run test:playwright
