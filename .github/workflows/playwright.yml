@@ -17,5 +17,7 @@ jobs:
           node-version: '16'
       - name: install dependencies
         run: npm install
+      - name: install playwright browsers
+        run: npx playwright install
       - name: run playwright tests
         run: npm run test:playwright
